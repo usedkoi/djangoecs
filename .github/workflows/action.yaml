@@ -38,7 +38,7 @@ jobs:
 
       - name: Build, tag, and push docker image to Amazon ECR
         env:
-          REGISTRY: 699475953231.dkr.ecr.ap-northeast-2.amazonaws.com/djangoecs
+          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           REPOSITORY: djangoecs
           IMAGE_TAG: ${{ github.sha }}
         run: |
